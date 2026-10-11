@@ -104,7 +104,17 @@ npm run dev                    # http://localhost:3000
 
 Generate the secrets with `python -c "import secrets; print(secrets.token_urlsafe(32))"`.
 
-**n8n workflow.** Open http://localhost:5678 and import `n8n/underwriting-workflow.json`. (The workflow export is not committed yet; until it is, build the workflow from the architecture above.) Then set two credentials: a Header Auth credential (`X-Service-Token` = your `SERVICE_TOKEN`) used by the webhook and the HTTP tools, and your OpenAI and Slack credentials. From inside Docker, the backend is reachable at `http://host.docker.internal:8000`. Set `N8N_WEBHOOK_URL` in `backend/.env` to the workflow's production webhook URL.
+**n8n workflow.** Two exports are in `n8n/`:
+
+- `n8n/underwriting-workflow.json` is for the local Docker n8n. It calls the backend at `http://host.docker.internal:8000`.
+- `n8n/underwriting-workflow.production.json` is for the deployed n8n instance. It calls the Railway backend.
+
+Open n8n (http://localhost:5678 locally), choose **Import from file**, and pick the matching export. Credentials are not included in the exports, so after importing:
+
+1. Create a Header Auth credential named **Backend Service Token** (name `X-Service-Token`, value = your `SERVICE_TOKEN`). Re-select it on the **Webhook**, **extract_case_facts**, **score_case** and **Save memo** nodes.
+2. Re-select your **OpenAI** credential on the **OpenAI Chat Model** node.
+3. In **Notify Slack**, replace `REPLACE_WITH_SLACK_WEBHOOK_URL` with your Slack incoming webhook URL, and `REPLACE_WITH_VERCEL_URL` with your frontend's domain.
+4. Activate the workflow and set `N8N_WEBHOOK_URL` in `backend/.env` to its production webhook URL (for local Docker: `http://localhost:5678/webhook/new-case`).
 
 **Evals.** With the backend running: `backend\venv\Scripts\python.exe evals\generate_cases.py`, then `backend\venv\Scripts\python.exe evals\run_evals.py`. See [evals/README.md](evals/README.md).
 

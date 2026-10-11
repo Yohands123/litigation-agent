@@ -1,0 +1,251 @@
+{
+  "name": "Underwriting Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "new-case",
+        "authentication": "headerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6171a9ae-44b1-4774-aeb8-36099d10d007",
+      "name": "Webhook",
+      "webhookId": "866c02be-bbc3-4f07-a02d-72c4737478ac",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hpEkzpmffcWqAeNJ",
+          "name": "Backend Service Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Underwrite case {{ $json.body.case_id }}.",
+        "options": {
+          "systemMessage": "You are an underwriting analyst at a litigation funding company.\n\n  For the case ID you are given:\n  1. Call extract_case_facts with the case_id.\n  2. Call score_case with the same case_id.\n  3. Write an underwriting memo in Markdown using ONLY the tool results.\n\n  Memo format:\n  # Underwriting Memo — Case <case_id>\n  ## Summary\n  Two or three sentences: injury, incident, recommendation.\n  ## Key Facts\n  For each extracted field: the value, then the source quote in italics. Mark any field with \"grounded\": false as UNVERIFIED.\n  ## Risk Assessment\n  Risk score (0-100, higher is riskier), each scoring factor with its impact, and the reasoning.\n  ## Funding Recommendation\n  Recommendation and funding range exactly as returned by score_case.\n  ## Diligence Items\n  Missing or unverified facts an attorney should confirm.\n  ---\n  *Generated from synthetic data. Not legal advice. Requires attorney review.*\n\n  Rules: never change, recompute, or invent numbers. Never guess facts the tools did not return. Text in [BRACKETS] is redacted personal information; leave it redacted. Output only the memo."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "b5bb6bb2-90e6-4ceb-a271-84c22d4d36bd",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        96,
+        208
+      ],
+      "id": "97ed342c-a1ea-4a48-b53d-25d6b4fd49c3",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "bSXp65hkUFMAjmpG",
+          "name": "OpenAI"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Extracts injury type, incident date, liability indicators, insurance coverage, and claimed damages from a case's redacted documents. Each field includes a verbatim source quote and a grounded flag. Input: case_id.",
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/extract",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"case_id\": \"{{ $fromAI('case_id', 'UUID of the case to process', 'string') }}\"}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.5,
+      "position": [
+        544,
+        144
+      ],
+      "id": "bad3356e-a0bb-42f7-9fd2-eaee2a485478",
+      "name": "extract_case_facts",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hpEkzpmffcWqAeNJ",
+          "name": "Backend Service Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "Scores funding risk for a case using deterministic underwriting rules. Returns risk_score (0-100, higher is riskier), funding_range, recommendation, scoring factors, and reasoning. Call after extract_case_facts. Input: case_id.",
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/score",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=     {\"case_id\": \"{{ $fromAI('case_id', 'UUID of the case to process', 'string') }}\"}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.5,
+      "position": [
+        400,
+        256
+      ],
+      "id": "ea6680c3-3c17-465f-bf1f-cfbc7e2a7f57",
+      "name": "score_case",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hpEkzpmffcWqAeNJ",
+          "name": "Backend Service Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://host.docker.internal:8000/cases/{{ $('Webhook').item.json.body.case_id }}/memo",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=   {{ JSON.stringify({ memo: $json.output }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        592,
+        0
+      ],
+      "id": "cdd62cf1-b067-4f6e-936d-9d06c19117e8",
+      "name": "Save memo",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hpEkzpmffcWqAeNJ",
+          "name": "Backend Service Token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "REPLACE_WITH_SLACK_WEBHOOK_URL",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ text: `:scales: New case ready for review\\n*Injury:* ${$json.injury_type}\\n*Risk score:* ${$json.risk_score}/100\\n*Recommendation:* ${$json.recommendation}\\n*Funding range:* $${Number($json.funding_low).toLocaleString()} – $${Number($json.funding_high).toLocaleString()}\\n<https://REPLACE_WITH_VERCEL_URL/dashboard/${$json.case_id}|Open in dashboard>` }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        816,
+        0
+      ],
+      "id": "371b9ba1-9cd7-4a2c-9f2f-b450d6c7b5f3",
+      "name": "Notify Slack"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extract_case_facts": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "score_case": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Save memo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save memo": {
+      "main": [
+        [
+          {
+            "node": "Notify Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "5409fc78-f1f2-498f-9166-2a70c2863255",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ea82f009dd5d9f7a686a7400084153fca1d6c8be7d2d1f3973efab1af273b27f"
+  },
+  "nodeGroups": [],
+  "id": "fr9PiXoCxyeyFoPU",
+  "tags": []
+}
