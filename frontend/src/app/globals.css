@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Design tokens from CLAUDE.md. The default Tailwind palette is cleared so only these exist. */
+@theme {
+  --color-*: initial;
+
+  --color-ink-950: #0b1220;
+  --color-ink-900: #111a2e;
+  --color-ink-700: #2a3550;
+  --color-ink-500: #5b6680;
+  --color-ink-300: #a9b1c3;
+
+  --color-paper-50: #faf8f4;
+  --color-paper-100: #f2eee6;
+  --color-paper-200: #e4ded2;
+
+  --color-accent-600: #9a6b1f;
+  --color-accent-500: #b7832f;
+  --color-accent-100: #f5ead3;
+
+  --color-success: #1f6f4a;
+  --color-success-bg: #e3f1e9;
+  --color-warning: #8a5a00;
+  --color-warning-bg: #fbefd5;
+  --color-danger: #a12c2c;
+  --color-danger-bg: #f7e1e1;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper-50);
+  color: var(--color-ink-950);
+}
+
+a,
+button,
+input,
+select,
+textarea,
+label {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2 {
+  text-wrap: balance;
+}
+
+main:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }
