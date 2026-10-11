@@ -375,8 +375,3 @@ Optional variables should be **deleted** rather than left empty. An empty value 
 - Asynchronous extraction with Celery and Redis.
 - Run the evals in CI with a regression threshold.
 
-## How this was built
-
-A one-night portfolio project built with Claude and Claude Code. The frontend used Anthropic's official frontend-design skill and Vercel's react-best-practices and web-design-guidelines skills. The architecture, security model, evaluation design and deployment decisions were directed and verified by the author.
-
-**Author:** Yohance Nayak, Computer Engineering, University of Waterloo · https://github.com/Yohands123
