@@ -1,0 +1,25 @@
+WATERLOO REGIONAL POLICE SERVICE - MOTOR VEHICLE COLLISION REPORT (SYNTHETIC)
+Report No: WRPS-2026-004417
+Date of Collision: 2026-03-14
+Location: King St N and University Ave W, Waterloo, ON
+
+Driver 1: Priya Raman
+DOB: 04/11/1995
+Phone: (519) 555-0142
+Email: priya.raman@example.com
+
+Driver 2: Marcus Feld
+Insurer (Driver 2): Northgate Mutual Insurance, policy limit $1,000,000
+
+Narrative: Vehicle 2 entered the intersection against a red signal and struck Vehicle 1 on the passenger side.
+An independent witness confirmed Vehicle 2 ran the red light. Driver 2 was cited for failing to stop at a red light.
+Driver 1 was wearing a seatbelt. Officer Daniel Okafor attended the scene.
+
+---
+GRAND RIVER HOSPITAL - ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Priya Raman   SIN: 046 454 286
+Diagnosis: Fractured left wrist (distal radius fracture), cervical strain
+Emergency department visit: $2,400.00
+Orthopedic surgery (ORIF): $18,750.00
+Physiotherapy (12 sessions): $1,850.00
+Total amount billed: $23,000.00
