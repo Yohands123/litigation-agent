@@ -12,7 +12,7 @@ FAVORABLE = (
     "rear end", "impaired", "dui", "dwi", "intoxicat", "admitted fault",
     "admitted responsibility", "failed to yield", "failure to yield", "speeding",
     "distracted", "texting", "on phone", "on his phone", "on her phone", "wrong way",
-    "stop sign", "at fault",
+    "stop sign", "at fault", "red signal", "against a red", "against the signal",
 )
 # Checked first, so "claimant was cited" is never counted as favorable.
 UNFAVORABLE = (
