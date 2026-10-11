@@ -1,0 +1,24 @@
+MOTOR VEHICLE COLLISION REPORT (SYNTHETIC)
+Report No: MVC-2023-8920
+Date of Collision: August 19, 2023
+Location: Weber St and Victoria St
+
+Driver 1: Noah Karimi
+DOB: 1986-06-06
+Phone: +1 905.555.0146
+Email: noah.karimi10@example.com
+SIN: 759 608 567
+
+Driver 2: Amara Petrova
+
+Narrative: Vehicle 1 was stopped at a red light when Vehicle 2 struck it from behind. Driver 2 told the attending officer he looked down at his phone and did not see traffic stop.
+Officer Baptiste attended the scene.
+
+---
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Noah Karimi
+Diagnosis: L4-L5 disc herniation with radiculopathy
+Pain management injections: $2,250.00
+Chiropractic care (8 sessions): $960.00
+Physiotherapy (20 sessions): $3,100.00
+Total amount billed: $6,310.00

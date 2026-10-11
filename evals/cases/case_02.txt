@@ -1,0 +1,26 @@
+MOTOR VEHICLE COLLISION REPORT (SYNTHETIC)
+Report No: MVC-2026-2761
+Date of Collision: January 22, 2026
+Location: Weber St and Victoria St
+
+Driver 1: Jordan Chen
+DOB: 1966-03-09
+Phone: +1 416.555.0147
+Email: jordan.chen02@example.com
+SIN: 565 724 399
+
+Driver 2: Ravi Mensah
+Insurer (Driver 2): Maple Shield Insurance, policy limit $2,000,000
+
+Narrative: Vehicle 2 entered the intersection against a red signal and struck Vehicle 1 on the driver side. An independent witness confirmed Vehicle 2 ran the red light. Driver 2 was cited for failing to stop at a red light.
+Officer Walsh attended the scene.
+
+---
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Jordan Chen
+Diagnosis: Fractured left wrist (distal radius fracture)
+MRI (lumbar spine): $2,100.00
+Occupational therapy assessment: $540.00
+Orthopedic consultation: $650.00
+Physiotherapy (20 sessions): $3,100.00
+Total amount billed: $6,390.00

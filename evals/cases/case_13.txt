@@ -1,0 +1,15 @@
+CLAIMANT STATEMENT (SYNTHETIC)
+Driver 1: Hannah Petrova
+Phone: +1 905.555.0141
+Email: hannah.petrova13@example.com
+SIN: 647 825 774
+
+I was driving home on New Year's Eve, December 31, 2025, along Queen St E. Vehicle 2 crossed the centre line and collided head-on with Vehicle 1. Driver 2 failed a roadside breath test and was charged with impaired driving. Officer Moreau took my statement at the hospital. The other driver is insured with Northgate Mutual Insurance, policy limit $1,000,000.
+
+---
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Hannah Petrova
+Diagnosis: Displaced fracture of the left clavicle
+Orthopedic surgery (ORIF): $18,750.00
+Cervical collar and brace: $180.00
+Pain management injections: $2,250.00

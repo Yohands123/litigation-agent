@@ -1,0 +1,26 @@
+MOTOR VEHICLE COLLISION REPORT (SYNTHETIC)
+Report No: MVC-2026-8829
+Date of Collision: 2026-05-19
+Location: Fischer-Hallman Rd and Ottawa St S
+
+Driver 1: Sofia Kowalski
+DOB: 1978-11-13
+Phone: 647-555-0138
+Email: sofia.kowalski04@example.com
+SIN: 371 673 431
+
+Driver 2: Kwame Patel
+Insurer (Driver 2): Tri-County Casualty, policy limit $500,000
+
+Narrative: Vehicle 1 changed lanes without signalling and moved into the path of Vehicle 2. Driver 1 was cited for an unsafe lane change. Driver 2 was not charged.
+Officer Singh attended the scene.
+
+---
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Sofia Kowalski
+Diagnosis: L4-L5 disc herniation with radiculopathy
+Ambulance transport: $850.00
+Pain management injections: $2,250.00
+Neurology follow-up: $780.00
+Orthopedic consultation: $650.00
+Total amount billed: $4,530.00

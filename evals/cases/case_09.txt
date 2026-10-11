@@ -1,0 +1,18 @@
+PREMISES INCIDENT REPORT (SYNTHETIC)
+Incident date: 2026-07-08
+Claimant: Owen Mensah
+Phone: +1 905.555.0153
+Email: owen.mensah09@example.com
+SSN: 234-84-7261
+Property owner's liability insurer: Harbourfront Commercial Insurance, policy limit $2,000,000
+
+Description: The claimant slipped on an unmarked wet floor in aisle 7. No warning signs were posted. The store's incident log shows the spill was reported 40 minutes earlier and had not been cleaned.
+
+---
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Owen Mensah
+Diagnosis: Grade II sprain of the right ankle (soft-tissue injury)
+Prescription medication: $265.00
+Cervical collar and brace: $180.00
+Physiotherapy (20 sessions): $3,100.00
+Ambulance transport: $850.00

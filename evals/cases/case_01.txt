@@ -1,0 +1,25 @@
+MOTOR VEHICLE COLLISION REPORT (SYNTHETIC)
+Report No: MVC-2026-4771
+Date of Collision: 2026-03-14
+Location: Fischer-Hallman Rd and Ottawa St S
+
+Driver 1: Noah Mensah
+DOB: 1995-01-23
+Phone: 905-555-0143
+Email: noah.mensah01@example.com
+SIN: 156 140 466
+
+Driver 2: Priya Mensah
+Insurer (Driver 2): Northgate Mutual Insurance, policy limit $1,000,000
+
+Narrative: Vehicle 1 was stopped at a red light when Vehicle 2 struck it from behind. Driver 2 told the attending officer he looked down at his phone and did not see traffic stop.
+Officer Lindqvist attended the scene.
+
+---
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Noah Mensah
+Diagnosis: Whiplash-associated disorder (WAD II), cervical strain
+Physiotherapy (12 sessions): $1,850.00
+Emergency department visit: $2,400.00
+Occupational therapy assessment: $540.00
+Total amount billed: $4,790.00

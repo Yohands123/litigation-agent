@@ -1,0 +1,17 @@
+MOTOR VEHICLE COLLISION REPORT (SYNTHETIC)
+Report No: MVC-2026-5825
+Date of Collision: 27/03/2026
+Location: Fischer-Hallman Rd and Ottawa St S
+
+Driver 1: Lucas Tanaka
+DOB: 1977-06-28
+Phone: (647) 555-0127
+Email: lucas.tanaka12@example.com
+SIN: 137 384 317
+
+Driver 2: Noah Brooks
+Insurer (Driver 2): Prairie Mutual
+
+Narrative: Witness accounts conflict. Witness 1 stated that Vehicle 1 entered the intersection on a stale amber light. Witness 2 stated that Vehicle 2 ran the red light. No charges were laid pending further investigation. Lucas Tanaka was transported to hospital by ambulance and later gave a statement at the scene.
+Officer Okafor attended the scene.
+Injuries reported at scene: Concussion (mild traumatic brain injury) with post-concussive headaches.

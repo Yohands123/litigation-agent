@@ -1,0 +1,24 @@
+MOTOR VEHICLE COLLISION REPORT (SYNTHETIC)
+Report No: MVC-2026-9733
+Date of Collision: February 17, 2026
+Location: King St N and University Ave W
+
+Driver 1: Amara Haddad
+DOB: 2000-05-23
+Phone: +1 647.555.0166
+Email: amara.haddad05@example.com
+SIN: 748 855 880
+
+Driver 2: Tomasz Reid
+
+Narrative: Witness accounts conflict. Witness 1 stated that Vehicle 1 entered the intersection on a stale amber light. Witness 2 stated that Vehicle 2 ran the red light. No charges were laid pending further investigation.
+Officer Baptiste attended the scene.
+
+---
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Amara Haddad
+Diagnosis: Grade II lumbar sprain (soft-tissue injury)
+Neurology follow-up: $780.00
+Orthopedic consultation: $650.00
+Pain management injections: $2,250.00
+MRI (lumbar spine): $2,100.00

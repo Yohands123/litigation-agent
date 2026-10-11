@@ -1,0 +1,726 @@
+{
+  "summary": {
+    "run_at": "2026-10-11T04:36:10+00:00",
+    "api_url": "http://localhost:8000",
+    "model": "gpt-4o-mini",
+    "cases": 15,
+    "errors": {},
+    "per_field_accuracy": {
+      "injury_type": {
+        "correct": 15,
+        "total": 15
+      },
+      "incident_date": {
+        "correct": 15,
+        "total": 15
+      },
+      "insurer": {
+        "correct": 15,
+        "total": 15
+      },
+      "policy_limit": {
+        "correct": 15,
+        "total": 15
+      },
+      "claimed_damages": {
+        "correct": 12,
+        "total": 15
+      },
+      "liability_indicators": {
+        "correct": 11,
+        "total": 15
+      }
+    },
+    "overall": {
+      "correct": 83,
+      "total": 90,
+      "accuracy": 0.9222222222222223
+    },
+    "grounding": {
+      "grounded": 80,
+      "checked": 82,
+      "rate": 0.975609756097561,
+      "ungrounded_by_case": {
+        "case_05": [
+          "claimed_damages"
+        ],
+        "case_09": [
+          "claimed_damages"
+        ]
+      }
+    },
+    "pii": {
+      "planted": 60,
+      "leaked_doc_only": 2,
+      "recall_doc_only": 0.9666666666666667,
+      "leaked_with_form_name": 0,
+      "recall_with_form_name": 1.0
+    }
+  },
+  "cases": [
+    {
+      "case": "case_01",
+      "description": "whiplash / rear_end / insurance=full / damages=total / date=iso / layout=police+medical",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": false
+      },
+      "extracted": {
+        "injury_type": "whiplash",
+        "incident_date": "2026-03-14",
+        "insurer": "Northgate Mutual Insurance",
+        "policy_limit": 1000000,
+        "claimed_damages": 4790,
+        "liability_indicators": [
+          "Driver 2 looked down at his phone"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of whiplash, cervical, neck",
+        "incident_date": "2026-03-14",
+        "insurer": "Northgate Mutual Insurance",
+        "policy_limit": 1000000,
+        "claimed_damages": 4790,
+        "liability_indicators": "must mention: rear|from behind|struck it from behind"
+      },
+      "grounding": {
+        "checked": 5,
+        "grounded": 5,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 5.11
+    },
+    {
+      "case": "case_02",
+      "description": "fracture_wrist / red_light / insurance=full / damages=total / date=long / layout=police+medical",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": true
+      },
+      "extracted": {
+        "injury_type": "fractured left wrist",
+        "incident_date": "2026-01-22",
+        "insurer": "Maple Shield Insurance",
+        "policy_limit": 2000000,
+        "claimed_damages": 6390,
+        "liability_indicators": [
+          "Vehicle 2 entered the intersection against a red signal",
+          "independent witness confirmed Vehicle 2 ran the red light",
+          "Driver 2 was cited for failing to stop at a red light"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of fractur, broken, wrist, radius",
+        "incident_date": "2026-01-22",
+        "insurer": "Maple Shield Insurance",
+        "policy_limit": 2000000,
+        "claimed_damages": 6390,
+        "liability_indicators": "must mention: red light|red signal; cited|charged|ticket"
+      },
+      "grounding": {
+        "checked": 7,
+        "grounded": 7,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 2.83
+    },
+    {
+      "case": "case_03",
+      "description": "concussion / dui / insurance=insurer only / damages=itemized / date=dmy / layout=police+medical",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": false,
+        "liability_indicators": true
+      },
+      "extracted": {
+        "injury_type": "traumatic brain injury",
+        "incident_date": "2025-11-28",
+        "insurer": "Lakeshore General Insurance",
+        "policy_limit": null,
+        "claimed_damages": 6180,
+        "liability_indicators": [
+          "Driver 2 failed a roadside breath test",
+          "Vehicle 2 crossed the centre line"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of concussion, traumatic brain injury, tbi, brain",
+        "incident_date": "2025-11-28",
+        "insurer": "Lakeshore General Insurance",
+        "policy_limit": null,
+        "claimed_damages": 6280,
+        "liability_indicators": "must mention: impaired|dui|alcohol|breath|intoxicat"
+      },
+      "grounding": {
+        "checked": 6,
+        "grounded": 6,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 3.06
+    },
+    {
+      "case": "case_04",
+      "description": "herniated_disc / claimant_cited / insurance=full / damages=total / date=iso / layout=police+medical",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": true
+      },
+      "extracted": {
+        "injury_type": "l4-l5 disc herniation with radiculopathy",
+        "incident_date": "2026-05-19",
+        "insurer": "Tri-County Casualty",
+        "policy_limit": 500000,
+        "claimed_damages": 4530,
+        "liability_indicators": [
+          "Driver 1 was cited for an unsafe lane change"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of herniat, disc, disk",
+        "incident_date": "2026-05-19",
+        "insurer": "Tri-County Casualty",
+        "policy_limit": 500000,
+        "claimed_damages": 4530,
+        "liability_indicators": "must mention: lane change|changed lanes; cited|charged|ticket"
+      },
+      "grounding": {
+        "checked": 5,
+        "grounded": 5,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 2.14
+    },
+    {
+      "case": "case_05",
+      "description": "sprain_lumbar / conflicting / insurance=none / damages=itemized / date=long / layout=police+medical",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": false,
+        "liability_indicators": false
+      },
+      "extracted": {
+        "injury_type": "lumbar sprain",
+        "incident_date": "2026-02-17",
+        "insurer": null,
+        "policy_limit": null,
+        "claimed_damages": 3780,
+        "liability_indicators": [
+          "Vehicle 1 entered the intersection on a stale amber light",
+          "Vehicle 2 ran the red light"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of sprain, soft tissue, soft-tissue, lumbar, back",
+        "incident_date": "2026-02-17",
+        "insurer": null,
+        "policy_limit": null,
+        "claimed_damages": 5780,
+        "liability_indicators": "must mention: witness|conflict|disputed|unclear"
+      },
+      "grounding": {
+        "checked": 5,
+        "grounded": 4,
+        "ungrounded_fields": [
+          "claimed_damages"
+        ]
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 2.59
+    },
+    {
+      "case": "case_06",
+      "description": "whiplash / no_seatbelt / insurance=full / damages=None / date=iso / layout=police",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": true
+      },
+      "extracted": {
+        "injury_type": "whiplash",
+        "incident_date": "2026-04-30",
+        "insurer": "Empire State Auto Insurance",
+        "policy_limit": 250000,
+        "claimed_damages": null,
+        "liability_indicators": [
+          "Vehicle 2 failed to stop at a stop sign",
+          "Driver 1 was not wearing a seatbelt"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of whiplash, cervical, neck",
+        "incident_date": "2026-04-30",
+        "insurer": "Empire State Auto Insurance",
+        "policy_limit": 250000,
+        "claimed_damages": null,
+        "liability_indicators": "must mention: stop sign; seatbelt|seat belt"
+      },
+      "grounding": {
+        "checked": 5,
+        "grounded": 5,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 2.73
+    },
+    {
+      "case": "case_07",
+      "description": "fracture_tibia / speeding / insurance=insurer only / damages=total / date=dmy / layout=police+medical",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": true
+      },
+      "extracted": {
+        "injury_type": "closed fracture of the right tibia",
+        "incident_date": "2025-09-13",
+        "insurer": "Great Lakes Indemnity",
+        "policy_limit": null,
+        "claimed_damages": 2810,
+        "liability_indicators": [
+          "Driver 2 was cited for speeding"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of fractur, broken, tibia, leg",
+        "incident_date": "2025-09-13",
+        "insurer": "Great Lakes Indemnity",
+        "policy_limit": null,
+        "claimed_damages": 2810,
+        "liability_indicators": "must mention: speed; cited|charged|ticket"
+      },
+      "grounding": {
+        "checked": 5,
+        "grounded": 5,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 2.24
+    },
+    {
+      "case": "case_08",
+      "description": "tbi / red_light / insurance=full / damages=prose / date=prose / layout=letter",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": true
+      },
+      "extracted": {
+        "injury_type": "traumatic brain injury",
+        "incident_date": "2026-06-03",
+        "insurer": "Ridgeline Insurance Group",
+        "policy_limit": 1000000,
+        "claimed_damages": 5840,
+        "liability_indicators": [
+          "Vehicle 2 entered the intersection against a red signal",
+          "Driver 2 was cited for failing to stop at a red light",
+          "independent witness confirmed Vehicle 2 ran the red light"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of traumatic brain injury, tbi, brain, concussion",
+        "incident_date": "2026-06-03",
+        "insurer": "Ridgeline Insurance Group",
+        "policy_limit": 1000000,
+        "claimed_damages": 5840,
+        "liability_indicators": "must mention: red light|red signal; cited|charged|ticket"
+      },
+      "grounding": {
+        "checked": 7,
+        "grounded": 7,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 3.99
+    },
+    {
+      "case": "case_09",
+      "description": "sprain_ankle / slip_wet_floor / insurance=full / damages=itemized / date=iso / layout=premises+medical",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": true
+      },
+      "extracted": {
+        "injury_type": "grade ii sprain of the right ankle",
+        "incident_date": "2026-07-08",
+        "insurer": "Harbourfront Commercial Insurance",
+        "policy_limit": 2000000,
+        "claimed_damages": 4355,
+        "liability_indicators": [
+          "unmarked wet floor",
+          "no warning signs posted",
+          "spill reported 40 minutes earlier",
+          "spill not cleaned"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of sprain, soft tissue, soft-tissue, ankle",
+        "incident_date": "2026-07-08",
+        "insurer": "Harbourfront Commercial Insurance",
+        "policy_limit": 2000000,
+        "claimed_damages": 4395,
+        "liability_indicators": "must mention: wet|spill; sign|warning|not been cleaned|not cleaned"
+      },
+      "grounding": {
+        "checked": 8,
+        "grounded": 7,
+        "ungrounded_fields": [
+          "claimed_damages"
+        ]
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 3.01
+    },
+    {
+      "case": "case_10",
+      "description": "herniated_disc / rear_end / insurance=none / damages=total / date=long / layout=police+medical",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": true
+      },
+      "extracted": {
+        "injury_type": "l4-l5 disc herniation with radiculopathy",
+        "incident_date": "2023-08-19",
+        "insurer": null,
+        "policy_limit": null,
+        "claimed_damages": 6310,
+        "liability_indicators": [
+          "Driver 2 looked down at his phone",
+          "Vehicle 2 struck Vehicle 1 from behind"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of herniat, disc, disk",
+        "incident_date": "2023-08-19",
+        "insurer": null,
+        "policy_limit": null,
+        "claimed_damages": 6310,
+        "liability_indicators": "must mention: rear|from behind|struck it from behind"
+      },
+      "grounding": {
+        "checked": 5,
+        "grounded": 5,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 3.83
+    },
+    {
+      "case": "case_11",
+      "description": "whiplash / none / insurance=none / damages=total / date=iso / layout=medical",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": true
+      },
+      "extracted": {
+        "injury_type": "whiplash",
+        "incident_date": "2026-02-09",
+        "insurer": null,
+        "policy_limit": null,
+        "claimed_damages": 4420,
+        "liability_indicators": []
+      },
+      "expected": {
+        "injury_type": "any of whiplash, cervical, neck",
+        "incident_date": "2026-02-09",
+        "insurer": null,
+        "policy_limit": null,
+        "claimed_damages": 4420,
+        "liability_indicators": "none required"
+      },
+      "grounding": {
+        "checked": 3,
+        "grounded": 3,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 1.47
+    },
+    {
+      "case": "case_12",
+      "description": "concussion / conflicting / insurance=insurer only / damages=None / date=dmy / layout=police / name in prose",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [
+          "Lucas Tanaka"
+        ],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": false
+      },
+      "extracted": {
+        "injury_type": "traumatic brain injury",
+        "incident_date": "2026-03-27",
+        "insurer": "Prairie Mutual",
+        "policy_limit": null,
+        "claimed_damages": null,
+        "liability_indicators": [
+          "Vehicle 1 entered the intersection on a stale amber light",
+          "Vehicle 2 ran the red light"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of concussion, traumatic brain injury, tbi, brain",
+        "incident_date": "2026-03-27",
+        "insurer": "Prairie Mutual",
+        "policy_limit": null,
+        "claimed_damages": null,
+        "liability_indicators": "must mention: witness|conflict|disputed|unclear"
+      },
+      "grounding": {
+        "checked": 5,
+        "grounded": 5,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 2.29
+    },
+    {
+      "case": "case_13",
+      "description": "fracture_clavicle / dui / insurance=full / damages=itemized / date=prose / layout=statement+medical",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": true
+      },
+      "extracted": {
+        "injury_type": "displaced fracture of the left clavicle",
+        "incident_date": "2025-12-31",
+        "insurer": "Northgate Mutual Insurance",
+        "policy_limit": 1000000,
+        "claimed_damages": 21000,
+        "liability_indicators": [
+          "Driver 2 failed a roadside breath test"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of fractur, broken, clavicle, collarbone",
+        "incident_date": "2025-12-31",
+        "insurer": "Northgate Mutual Insurance",
+        "policy_limit": 1000000,
+        "claimed_damages": 21180,
+        "liability_indicators": "must mention: impaired|dui|alcohol|breath|intoxicat"
+      },
+      "grounding": {
+        "checked": 5,
+        "grounded": 5,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 2.42
+    },
+    {
+      "case": "case_14",
+      "description": "sprain_ankle / claimant_following / insurance=full / damages=total / date=iso / layout=police+medical",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": true,
+        "liability_indicators": true
+      },
+      "extracted": {
+        "injury_type": "grade ii sprain of the right ankle",
+        "incident_date": "2026-08-02",
+        "insurer": "Coastal Shield Insurance",
+        "policy_limit": 300000,
+        "claimed_damages": 20820,
+        "liability_indicators": [
+          "driver 1 cited for following too closely",
+          "driver 1 not wearing seatbelt"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of sprain, soft tissue, soft-tissue, ankle",
+        "incident_date": "2026-08-02",
+        "insurer": "Coastal Shield Insurance",
+        "policy_limit": 300000,
+        "claimed_damages": 20820,
+        "liability_indicators": "must mention: following too closely|follow; seatbelt|seat belt"
+      },
+      "grounding": {
+        "checked": 6,
+        "grounded": 6,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 2.53
+    },
+    {
+      "case": "case_15",
+      "description": "herniated_disc / slip_icy_steps / insurance=insurer only / damages=itemized / date=dmy / layout=premises+medical / name in prose",
+      "pii": {
+        "planted": 4,
+        "leaked_doc_only": [
+          "Mateo Doyle"
+        ],
+        "leaked_with_form_name": []
+      },
+      "correct": {
+        "injury_type": true,
+        "incident_date": true,
+        "insurer": true,
+        "policy_limit": true,
+        "claimed_damages": false,
+        "liability_indicators": false
+      },
+      "extracted": {
+        "injury_type": "l4-l5 disc herniation with radiculopathy",
+        "incident_date": "2026-01-16",
+        "insurer": "Summit Property & Casualty",
+        "policy_limit": null,
+        "claimed_damages": 4920,
+        "liability_indicators": [
+          "steps not salted or cleared despite freezing rain warning"
+        ]
+      },
+      "expected": {
+        "injury_type": "any of herniat, disc, disk",
+        "incident_date": "2026-01-16",
+        "insurer": "Summit Property & Casualty",
+        "policy_limit": null,
+        "claimed_damages": 5820,
+        "liability_indicators": "must mention: ice|icy; salt|cleared|not been salted"
+      },
+      "grounding": {
+        "checked": 5,
+        "grounded": 5,
+        "ungrounded_fields": []
+      },
+      "model": "gpt-4o-mini",
+      "error": null,
+      "seconds": 2.57
+    }
+  ]
+}

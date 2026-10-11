@@ -1,0 +1,26 @@
+MOTOR VEHICLE COLLISION REPORT (SYNTHETIC)
+Report No: MVC-2025-1779
+Date of Collision: 13/09/2025
+Location: Queen St E and Parliament St
+
+Driver 1: Priya Doyle
+DOB: 1997-06-26
+Phone: 519-555-0158
+Email: priya.doyle07@example.com
+SIN: 558 697 610
+
+Driver 2: Fatima Tremblay
+Insurer (Driver 2): Great Lakes Indemnity
+
+Narrative: Vehicle 2 was travelling at an estimated 92 km/h in a 50 km/h zone and lost control, striking Vehicle 1 in the oncoming lane. Driver 2 was cited for speeding.
+Officer Singh attended the scene.
+
+---
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Priya Doyle
+Diagnosis: Closed fracture of the right tibia
+Chiropractic care (8 sessions): $960.00
+Orthopedic consultation: $650.00
+Neurology follow-up: $780.00
+X-ray series: $420.00
+Total amount billed: $2,810.00

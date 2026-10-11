@@ -1,0 +1,24 @@
+MOTOR VEHICLE COLLISION REPORT (SYNTHETIC)
+Report No: MVC-2025-5008
+Date of Collision: 28/11/2025
+Location: King St N and University Ave W
+
+Driver 1: Tomasz Petrova
+DOB: 1985-08-28
+Phone: 519-555-0160
+Email: tomasz.petrova03@example.com
+SIN: 449 473 395
+
+Driver 2: Jordan Brooks
+Insurer (Driver 2): Lakeshore General Insurance
+
+Narrative: Vehicle 2 crossed the centre line and collided head-on with Vehicle 1. Driver 2 failed a roadside breath test and was charged with impaired driving.
+Officer Okafor attended the scene.
+
+---
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Tomasz Petrova
+Diagnosis: Concussion (mild traumatic brain injury) with post-concussive headaches
+Emergency department visit: $2,400.00
+Neurology follow-up: $780.00
+Physiotherapy (20 sessions): $3,100.00

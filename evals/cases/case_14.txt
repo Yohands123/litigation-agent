@@ -1,0 +1,26 @@
+MOTOR VEHICLE COLLISION REPORT (SYNTHETIC)
+Report No: MVC-2026-1847
+Date of Collision: 2026-08-02
+Location: Queen St E and Parliament St
+
+Driver 1: Owen Siddiqui
+DOB: 1978-05-21
+Phone: +1 905.555.0188
+Email: owen.siddiqui14@example.com
+SSN: 426-93-8668
+
+Driver 2: Ravi Osei
+Insurer (Driver 2): Coastal Shield Insurance, policy limit $300,000
+
+Narrative: Vehicle 1 struck the rear of Vehicle 2 when Vehicle 2 braked for a pedestrian. Driver 1 was cited for following too closely and was not wearing a seatbelt.
+Officer Lindqvist attended the scene.
+
+---
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Owen Siddiqui
+Diagnosis: Grade II sprain of the right ankle (soft-tissue injury)
+Occupational therapy assessment: $540.00
+Orthopedic surgery (ORIF): $18,750.00
+CT scan: $1,350.00
+Cervical collar and brace: $180.00
+Total amount billed: $20,820.00

@@ -1,0 +1,11 @@
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Priya Kowalski
+Phone: +1 519.555.0179
+Email: priya.kowalski11@example.com
+SIN: 276 851 365
+Date of injury: 2026-02-09
+Diagnosis: Whiplash-associated disorder (WAD II), cervical strain
+Physiotherapy (20 sessions): $3,100.00
+Neurology follow-up: $780.00
+Occupational therapy assessment: $540.00
+Total amount billed: $4,420.00

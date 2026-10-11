@@ -1,0 +1,18 @@
+PREMISES INCIDENT REPORT (SYNTHETIC)
+Incident date: 16/01/2026
+Claimant: Mateo Doyle
+Phone: 647-555-0154
+Email: mateo.doyle15@example.com
+SIN: 899 972 733
+Property owner's liability insurer: Summit Property & Casualty
+
+Description: The claimant fell on the building's front steps, which were covered in ice. The property manager confirmed the steps had not been salted or cleared that morning despite a freezing rain warning. A neighbour helped Mateo Doyle inside and called for an ambulance.
+
+---
+HOSPITAL ITEMIZED STATEMENT (SYNTHETIC)
+Patient: Mateo Doyle
+Diagnosis: L4-L5 disc herniation with radiculopathy
+Occupational therapy assessment: $540.00
+Neurology follow-up: $780.00
+MRI (lumbar spine): $2,100.00
+Emergency department visit: $2,400.00

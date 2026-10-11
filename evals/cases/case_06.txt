@@ -1,0 +1,17 @@
+MOTOR VEHICLE COLLISION REPORT (SYNTHETIC)
+Report No: MVC-2026-9426
+Date of Collision: 2026-04-30
+Location: Bay St and Dundas St W
+
+Driver 1: Priya Rossi
+DOB: 1988-01-13
+Phone: 905-555-0115
+Email: priya.rossi06@example.com
+SSN: 256-52-8392
+
+Driver 2: Fatima Petrova
+Insurer (Driver 2): Empire State Auto Insurance, policy limit $250,000
+
+Narrative: Vehicle 2 failed to stop at a stop sign and struck Vehicle 1 on the passenger side. Driver 1 was not wearing a seatbelt at the time of the collision.
+Officer Moreau attended the scene.
+Injuries reported at scene: Whiplash-associated disorder (WAD II), cervical strain.
